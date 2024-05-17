@@ -30,8 +30,11 @@ void BFS(int V){
         Q.pop(); //Q에서 'cur' 정점 빼내고,
         result_bfs.push_back(cur); //현재 방문한 정점을 BFS vector에 저장.
 
-        //다음 방문할 정점을 찾기 위해,
+        //다음 방문할 정점을 찾는다.
         for(int i=0 ; i<vec[cur].size() ; i++){ //현재 방문한 정점과 이어진 정점의 개수만큼 반복.
+            //[!] 단, 방문할 수 있는 정점이 여러개라면, 번호가 낮은 숫자부터 탐색.
+            sort(vec[cur].begin(), vec[cur].end()); 
+        
             if(!visited[vec[cur][i]]){ //방문하지 않은 곳만 탐색
                 Q.push(vec[cur][i]); //다음 정점을 Q에 push.
                 visited[vec[cur][i]] = true; //방문 표시.
@@ -46,6 +49,9 @@ void DFS(int V) {
 
     //큐가 빌 때까지 반복
     for(int i=0 ; i<vec[V].size() ; i++){
+        //[!] 단, 방문할 수 있는 정점이 여러개라면, 번호가 낮은 숫자부터 탐색.
+        sort(vec[V].begin(), vec[V].end()); 
+
         if(!visited[vec[V][i]]){ //방문한 적이 없다면
             DFS(vec[V][i]); //다음 정점을 넘겨주면서 DFS 호출
         }
@@ -64,10 +70,6 @@ int main(void) {
         cin >> from >> to;
         vec[from].push_back(to); //양방향 간선처리
         vec[to].push_back(from); //양방향 간선처리
-    }
-    for (int i=0 ; i<N ; i++) {
-        // 방문할 수 있는 정점이 여러개라면, 번호가 낮은 숫자부터 탐색.
-        sort(vec[i].begin(), vec[i].end()); 
     }
 
     DFS(V);
