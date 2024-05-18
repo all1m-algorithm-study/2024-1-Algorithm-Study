@@ -14,7 +14,7 @@
 - 정규 세미나에서 지정한 문제(이하 지정문제)는 **필수 풀이**
 - 각 팀마다 1회 이상 발표 진행
 
-### 3. 참고자료
+#### 3. 참고자료
 - [github 초보자를 위한 github desktop 사용법](https://www.notion.so/993232b08e7b4c629dddb3ebed6b2cc4?pvs=4)
 - [알고리즘 스터디 소개 및 규칙](https://allim.notion.site/2024-1-AL-1a88906b60784df28b56451bcf2d6b18)
 
